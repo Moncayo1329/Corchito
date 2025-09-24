@@ -2,6 +2,8 @@
 
 // Definir el struct del usuario. 
 
+#[derive(Debug, Clone)] // Debug: permite imprimir, Clone: permite duplicar
+
 pub struct Usuario { 
     pub id: u32,
     pub nombre: String,
@@ -32,9 +34,38 @@ password:"abdb".to_string(),
     ]
 }
 
+// Funcion para buscar usuario por id
+
 pub fn ver_usuario(id: u32) -> Option<Usuario>{
 
 let usuarios = listar_usuarios();
 usuarios.into_iter().find(|u| u.id == id)
 }
 
+
+
+// Funcion para crear usuario nuevo. 
+
+pub fn crear_usuario(
+usuarios: &mut Vec<Usuario>,
+nombre:String,
+email:String,
+password:String,
+) -> Usuario {
+    let nuevo_id = usuarios.iter().map(|u| u.id).max().unwrap_or(0) + 1;
+
+
+let nuevo_usuario = Usuario {
+    id: nuevo_id,
+    nombre,
+    email,
+    password,
+
+}; 
+
+usuarios.push(nuevo_usuario.clone()); // agregamos al vector 
+
+
+nuevo_usuario // devolvemos el usuario creado.
+
+}
