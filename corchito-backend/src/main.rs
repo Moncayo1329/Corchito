@@ -4,7 +4,7 @@ use crate::routes::usuario::{listar_usuarios, login, crear_usuario, ver_usuario}
 
 #[actix_web::main]
 // esto marca la funcion main como punto de entrada. 
-asyn fn main() -> std::io::Result<()>{
+async fn main() -> std::io::Result<()>{
     println!("Servidor corchito iniciando...");
 
     // Create a mutable vector for usuarios
