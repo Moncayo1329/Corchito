@@ -1,8 +1,10 @@
+use actix_web::{web, App, HttpServer, Responder, HttpResponse};
 mod routes; // Import the routes module
-
 use crate::routes::usuario::{listar_usuarios, login, crear_usuario, ver_usuario};
 
-fn main() {
+#[actix_web::main]
+// esto marca la funcion main como punto de entrada. 
+asyn fn main() -> std::io::Result<()>{
     println!("Servidor corchito iniciando...");
 
     // Create a mutable vector for usuarios
