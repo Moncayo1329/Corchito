@@ -1,6 +1,6 @@
 use actix_web::{web, App, HttpServer, Responder, HttpResponse};
 mod routes; // Import the routes module
-use crate::routes::usuario::{Usuario, listar_usuarios, login, crear_usuario, ver_usuario};
+use crate::routes::usuario::{Usuario, listar_usuarios};
 
 #[actix_web::main]
 // esto marca la funcion main como punto de entrada. 
@@ -9,7 +9,7 @@ async fn main() -> std::io::Result<()>{
 
 
 
-/// Aqui arrancamos un servidor http en la direccion 127.0.0.1:8080
+// Aqui arrancamos un servidor http en la direccion 127.0.0.1:8080
 
 
 HttpServer::new(|| {
